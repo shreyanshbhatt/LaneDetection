@@ -1,9 +1,6 @@
-# **Finding Lane Lines on the Road** 
+# **Report for Finding lanes on the road** 
 
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
+## By : Shreyansh Bhatt
 ---
 
 **Finding Lane Lines on the Road**
@@ -19,12 +16,12 @@ The goals / steps of this project are the following:
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
 The pipeline consists of 5 stages.
-1. Convert image to grayscale and apply guassian blur.
+1. Convert image to a grayscale and apply guassian blur.
 
 2. Use canny edge detection to detect edges. Filter = 5 was applied for gussian blur.
 [image2]: ./examples/gussian_blur.png
 
-3. Create region of interest: A polygon was created by defining vertices. Vertices of a polygon are variables based on the horizontal mid point. Width and height of a polygon are variable that can be adjusted. It should be according to the camera angel, change in car's direction, and lane markings. An example region of interest looks like a following,
+3. Create region of interest: A polygon was created according to vertices. Vertices of a polygon are variables based on a statically defined width, height around a horizontal mid point. Adjusting width and height results in a change of region of interest. It should be according to the camera angel, change in car's direction, and lane markings. An example region of interest looks like a following,
 [image3]: ./examples/masked_edges.png
 
 4. Line detection: Define line detection parameters for Hough line detection technique and call Hough line detection helper method to find lines. The parameters were chosen such that the algorithm can filter lanes based on an average lane marking length. These parameters also requires tuning based on different lane markings.
